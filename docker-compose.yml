@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  cw_website_database:
+    image: postgres
+    restart: always
+    ports:
+      - 5469:5432
+    container_name: playground-lucia
+    volumes:
+      - postgres:/data/postgres
+    networks:
+      - playground
+    environment:
+      - POSTGRES_USER=playground
+      - POSTGRES_PASSWORD=playground
+      - POSTGRES_DB=playground
+      - PGDATA=/data/postgres
+    
+volumes:
+  postgres:
+
+networks:
+  playground:
+
